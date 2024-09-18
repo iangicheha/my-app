@@ -1,7 +1,7 @@
 import ainurse from '@/assets/images/ainurse.jpeg';
-import docsappointment from '@/assets/images/docsappointment.jpeg';
-import healthyfood from '@/assets/images/healthyfood.jpg';
-import pharmacy from '@/assets/images/pharmacy.webp';
+import docsappointment from '@/assets/images/doctors appointment.png';
+import healthyfood from '@/assets/images/healthyfood.png';
+import pharmacy from '@/assets/images/pharmacy.png';
 import recov from '@/assets/images/recov.webp';
 import arrowDown from "@/assets/icons/arrow-down.png";
 import arrowUp from "@/assets/icons/arrow-up.png";
@@ -92,8 +92,8 @@ export const onboarding = [
     },
     {
         id: 5,
-         title:'recov',
-         description:'sign-in',
+         title:'',
+         description:'',
          image:image.recov,
     },
 
