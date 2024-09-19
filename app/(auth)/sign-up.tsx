@@ -13,7 +13,7 @@ const SignUp = () => {
   const router = useRouter(); // Use router hook
 
   // Handle form submission
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (!email || !password || !confirmPassword) {
       Alert.alert('Error', 'Please fill all fields.');
       return;
@@ -23,8 +23,16 @@ const SignUp = () => {
       return;
     }
 
-    // Proceed with sign-up logic (e.g., API call)
-    Alert.alert('Success', 'Sign up successful!');
+    try {
+      // Proceed with sign-up logic (e.g., API call or Firebase Authentication)
+      // For demonstration, assuming sign-up is successful
+      Alert.alert('Success', 'Sign up successful!');
+
+      // Redirect to Profile screen after successful sign-up
+      router.replace('/Profile'); // Navigate to Profile page
+    } catch (error) {
+      Alert.alert('Error', 'Sign up failed. Please try again.');
+    }
   };
 
   // Navigate to Sign In screen
@@ -36,7 +44,7 @@ const SignUp = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Create Your Account</Text>
-        <Text style={styles.subtitle}>Sign up to get started with Mobidoc.</Text>
+        <Text style={styles.subtitle}>Sign up to get started with Mobidok.</Text>
       </View>
       <View style={styles.form}>
         <TextInput

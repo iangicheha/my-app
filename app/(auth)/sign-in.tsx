@@ -4,9 +4,9 @@ import { useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Import Icon component
 
 const LogIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(false); // State for password visibility
   const router = useRouter();
 
   // Handle form submission
