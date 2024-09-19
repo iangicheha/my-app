@@ -19,10 +19,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({ title, onPress, bgVariant =
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 5,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
+    borderRadius: 25,
+    paddingVertical: 15,
+    paddingHorizontal: 26,
     alignItems: 'center',
+    width: '100%', // Make the button take up the full width of the container
+    maxWidth: 400, // You can set a max width to control how wide it can get
   },
   primaryButton: {
     backgroundColor: '#0286FF', // Primary color
