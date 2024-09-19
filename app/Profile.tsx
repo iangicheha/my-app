@@ -2,12 +2,21 @@ import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as ImagePicker from 'expo-image-picker';
+import DateTimePicker from '@react-native-community/datetimepicker'; // Import DateTimePicker
 import CustomButton from '@/components/CustomButton'; // Import CustomButton
+import { useRouter } from 'expo-router'; // Import useRouter
 
 const Profile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [dob, setDob] = useState(new Date());
+  const [medicalCondition, setMedicalCondition] = useState('');
+  const [location, setLocation] = useState('');
   const [profilePic, setProfilePic] = useState<string | null>(null);
+
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const router = useRouter(); // Initialize useRouter
 
   // Function to handle image picking
   const pickImage = async () => {
@@ -27,6 +36,14 @@ const Profile = () => {
   const handleSave = () => {
     // You can add your save logic here
     Alert.alert('Profile Updated', 'Your profile has been updated successfully!');
+    router.push('/Home'); // Navigate to the home page
+  };
+
+  // Function to show date picker
+  const handleDateChange = (event: any, selectedDate?: Date) => {
+    const currentDate = selectedDate || dob;
+    setShowDatePicker(false);
+    setDob(currentDate);
   };
 
   return (
@@ -43,6 +60,7 @@ const Profile = () => {
           <Text style={styles.editPicButtonText}>📷</Text>
         </TouchableOpacity>
       </View>
+      
       <View style={styles.form}>
         <TextInput
           style={styles.input}
@@ -59,6 +77,41 @@ const Profile = () => {
           keyboardType="email-address"
           autoCapitalize="none"
         />
+        <TextInput
+          style={styles.input}
+          value={phone}
+          onChangeText={setPhone}
+          placeholder="Phone Number"
+          keyboardType="phone-pad"
+        />
+
+        {/* Date of Birth Picker */}
+        <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.input}>
+          <Text>{dob.toDateString()}</Text>
+        </TouchableOpacity>
+        {showDatePicker && (
+          <DateTimePicker
+            value={dob}
+            mode="date"
+            display="default"
+            onChange={handleDateChange}
+            maximumDate={new Date()} // Ensures date of birth is in the past
+          />
+        )}
+
+        <TextInput
+          style={styles.input}
+          value={medicalCondition}
+          onChangeText={setMedicalCondition}
+          placeholder="Medical Condition"
+        />
+        <TextInput
+          style={styles.input}
+          value={location}
+          onChangeText={setLocation}
+          placeholder="Location (City/Region)"
+        />
+
         <CustomButton
           title="Save Changes"
           onPress={handleSave}
@@ -127,6 +180,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     fontSize: 16,
     backgroundColor: '#fff',
+    justifyContent: 'center', // Centering text inside TouchableOpacity for DatePicker
   },
 });
 
