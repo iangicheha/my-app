@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Profile = () => {
+const Pharmacy = () => {
   return (
     <SafeAreaView>
-      <Text>Profile</Text>
+      <Text>Pharmacy Screen</Text>
     </SafeAreaView>
   );
 };
 
-export default Profile;
+export default Pharmacy;

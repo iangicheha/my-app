@@ -28,6 +28,10 @@ import selectedMarker from "@/assets/icons/selected-marker.png";
 import star from "@/assets/icons/star.png";
 import target from "@/assets/icons/target.png";
 import to from "@/assets/icons/to.png";
+import Pharmacy from "@/assets/icons/Pharmacy.png";
+import nutrition from "@/assets/icons/nutrition.png";
+import AI from "@/assets/icons/AI.png";
+import Ap from "@/assets/icons/Ap.png";
 
 export const image = {
     ainurse,
@@ -37,6 +41,10 @@ export const image = {
     recov,
 };
 export const icons = {
+    Ap,
+    AI,
+    Pharmacy,
+    nutrition,
     arrowDown,
     arrowUp,
     backArrow,
